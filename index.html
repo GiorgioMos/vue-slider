@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title> Hell of Carosello 🔥 </title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <div class="carousel">
+            <!--slide e index = nomi nuovi dati per ogni oggetto nell'array "slides" sul foglio js. index serve con v-show per indicare con === un booleano che serve per far vedere una solo immagine -->
+            <div v-for="(slide, index) in slides" v-show="index === currentIndex">
+                <img :src="slide.immagine" alt="Product Image">
+                <h2>{{ slide.nome }}</h2>
+                <p>{{ slide.descrizione }}</p>
+                <p>Prezzo: ${{ slide.prezzo }}</p>
+            </div>
+        </div>
+        <button @click="prevSlide">Previous</button>
+        <button @click="nextSlide">Next</button>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
